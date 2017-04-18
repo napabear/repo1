@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-
 
     constructor() {
         super();
@@ -12,8 +11,12 @@ class App extends Component {
         }
     }
 
-    bar() {
-        this.setState({ nine: '9'})
+
+
+    getNine = () => {
+        this.setState({
+            nine: '9'
+        })
     };
 
     render() {
@@ -24,9 +27,9 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          Nine: {this.state.nine}
+            Nine: {this.state.nine}
         </p>
-          <button onClick = {this.bar}>Get Nine</button>
+          <button className='elf' onClick={this.getNine}>Get Nine</button>
       </div>
     );
   }
