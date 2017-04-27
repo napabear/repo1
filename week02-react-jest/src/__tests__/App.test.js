@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from '../App';
 import { shallow } from 'enzyme';
 
 describe('Jest Create React Tests', function () {
@@ -31,5 +31,19 @@ describe('Jest Create React Tests', function () {
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 
+    it('renders and displays the default first name', () => {
+        const wrapper = shallow(<App />);
+        const welcome = <p className="App-intro">firstName: unknown</p>;
+        const firstName = wrapper.find('p').last().debug();
+        console.log(firstName);
+        expect(wrapper.contains(welcome)).toEqual(true);
+        });
+
+    it('renders button click message', () => {
+        const wrapper = shallow(<App />);
+        const firstName = <p className="App-intro">firstName: Patty</p>;
+        wrapper.find('button.setAddress').simulate('click');
+        expect(wrapper.contains(firstName)).toEqual(true);
+    });
 
 });
